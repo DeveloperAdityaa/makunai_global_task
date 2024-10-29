@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+#To-Do List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Overview
 
-## Available Scripts
+This To-Do List application allows users to manage their tasks effectively. Users can add new tasks, mark them as completed, and delete tasks as needed. The application also utilizes local storage to persist the tasks, ensuring that they remain even after a page refresh.
 
-In the project directory, you can run:
+##Technologies Used
 
-### `npm start`
+    •	React: For building the user interface and managing component states.
+    •	JavaScript: To implement functionality, handle events, and manage local storage.
+    •	CSS: To style the application and ensure a responsive layout.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    •	Add Tasks: Users can input a new task and add it to the list by clicking the “Add” button.
+    •	Display Tasks: Each task appears in a list format with the ability to view the task text, completion status, and a delete option.
+    •	Delete Tasks: Users can remove tasks from the list by clicking the delete icon.
+    •	Mark Tasks as Completed: Users can click on a checkbox to mark tasks as completed. Completed tasks are visually differentiated from pending tasks.
 
-### `npm test`
+##Approach
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    1.	Component Structure:
+    •	App Component: The main component responsible for state management and rendering the task list and input form.
+    •	ToDoItem Component: A reusable component representing each task, including a checkbox for completion and a delete icon.
+    2.	State Management:
+    •	Utilized React’s useState hook to manage the list of tasks and input field state.
+    •	Implemented local storage to save and retrieve tasks, ensuring data persistence across page reloads.
+    3.	Event Handling:
+    •	Handled button clicks and checkbox changes to update the task list appropriately.
+    •	Implemented a function to add new tasks only if the input field is not empty and to clear the input field after adding a task.
+    4.	CSS Styling:
+    •	Designed the application to be visually appealing with basic CSS styles, ensuring a clean and user-friendly interface.
 
-### `npm run build`
+##Challenges Faced
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    •	Local Storage Management: Implementing the logic to save and retrieve tasks from local storage required careful handling to ensure data persistence. I had to ensure that tasks were correctly loaded on the initial render and updated appropriately when changes occurred.
+    •	Event Handling: Managing state changes through event handling posed challenges, especially when ensuring that tasks could be marked as completed or deleted without losing the entire task list.
+    •	Responsive Design: Ensuring that the layout was responsive and that task items displayed correctly regardless of text length took additional time and effort.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##Conclusion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This To-Do List app is a practical implementation of core React concepts such as component structure, state management, and event handling. The experience gained from developing this application has enhanced my understanding of React and improved my ability to manage application state effectively.

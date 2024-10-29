@@ -1,0 +1,35 @@
+.task-item {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%; 
+    box-sizing: border-box; 
+    justify-content: center;
+  }
+  
+  .task-item.completed .task-text {
+    text-decoration: line-through; 
+  }
+  
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .task-text {
+    flex: 1;
+    font-weight: bold;
+    word-break: break-word; 
+    text-align: center; 
+  }
+  
+  .delete-icon {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;}
+  
+  .delete-icon:hover {
+    color: darkred;
+  }
