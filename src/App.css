@@ -1,16 +1,75 @@
-/* App.css */
-.App {
-  text-align: center;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-  margin-bottom: 20px;
+h2 {
+  text-align: center;
 }
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  width: 100%; /* Ensure the list takes the full width */
+}
+
+li.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  width: 80%;
+  margin: 10px auto;
+  word-wrap: break-word;
+}
+
+li.completed .task-text {
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-text {
+  flex: 1;
+}
+
+button.delete {
+  background-color: #dc3545;
+}
+
+button.delete:hover {
+  background-color: #c82333;
 }

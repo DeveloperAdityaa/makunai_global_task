@@ -1,62 +1,49 @@
+// src/App.js
 import React, { useState, useEffect } from "react";
-import ToDoItem from "./components/ToDoItem";
-import "./App.css";
-import AddTaskForm from "./components/AddTaskForm";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import TodoList from "./components/TodoList";
+import { auth } from "./firebase";
 
 function App() {
-  const [tasks, setTasks] = useState(() => {
-    // Retrieve tasks from localStorage on first render
-    const savedTasks = localStorage.getItem("tasks");
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // Save to localStorage whenever tasks are updated
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+      setLoading(false);
+    });
 
-  // Function to add a new task
-  const addTask = (taskText) => {
-    const newTask = { text: taskText, completed: false, id: Date.now() };
-    setTasks((prevTasks) => [...prevTasks, newTask]);
-  };
+    return () => unsubscribe();
+  }, []);
 
-  // Function to delete a task
-  const deleteTask = (taskId) => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-  };
+  if (loading) return <div>Loading...</div>;
 
-  // Function to toggle task completion
-  const toggleTaskCompletion = (taskId) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-  const editTask = (taskId, newText) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === taskId ? { ...task, text: newText } : task
-      )
-    );
-  };
   return (
-    <div className="App">
-      <h1>To-Do List</h1>
-      <AddTaskForm addTask={addTask} />
-      <ul>
-        {tasks.map((task) => (
-          <ToDoItem
-            key={task.id}
-            task={task}
-            deleteTask={deleteTask}
-            editTask={editTask}
-            toggleTaskCompletion={toggleTaskCompletion}
-          />
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/login"
+          element={isLoggedIn ? <Navigate to="/todo-list" /> : <Login />}
+        />
+        <Route
+          path="/signup"
+          element={isLoggedIn ? <Navigate to="/todo-list" /> : <Signup />}
+        />
+        <Route
+          path="/todo-list"
+          element={isLoggedIn ? <TodoList /> : <Navigate to="/login" />}
+        />
+        <Route path="/" element={<Navigate to="/login" />} />
+      </Routes>
+    </Router>
   );
 }
 

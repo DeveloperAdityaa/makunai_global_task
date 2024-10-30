@@ -1,6 +1,6 @@
 // AddTaskForm.js
 import React, { useState } from "react";
-import "./../css/AddTaskForm.css"; // Import CSS for styling
+import "./../css/AddTaskForm.css";
 
 function AddTaskForm({ addTask }) {
   const [taskText, setTaskText] = useState("");

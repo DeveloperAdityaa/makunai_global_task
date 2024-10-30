@@ -1,6 +1,6 @@
 import React from "react";
 import "./../css/ToDoItem.css";
-import { FaPen, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 function ToDoItem({ task, deleteTask, toggleTaskCompletion }) {
   return (

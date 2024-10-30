@@ -1,0 +1,15 @@
+.Parent {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ensure the list takes the full width */
+  }
